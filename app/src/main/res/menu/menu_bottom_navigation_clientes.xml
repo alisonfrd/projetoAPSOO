@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ic_particular"
+        android:icon="@drawable/ic_pessoa"
+        android:title="Particular" />
+
+    <item android:id="@+id/ic_empresa"
+        android:icon="@drawable/ic_empresa"
+        android:title="Empresa" />
+</menu>

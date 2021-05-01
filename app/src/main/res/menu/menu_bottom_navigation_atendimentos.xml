@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ic_particular"
+        android:icon="@drawable/ic_atendimentos_pendentes"
+        android:title="Pendentes" />
+
+    <item android:id="@+id/ic_empresa"
+        android:icon="@drawable/ic_relatorios_atendimentos"
+        android:title="Relatórios" />
+</menu>
