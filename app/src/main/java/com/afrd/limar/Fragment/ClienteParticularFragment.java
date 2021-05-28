@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.afrd.limar.R;
-import com.afrd.limar.activity.MainActivity;
+import com.afrd.limar.activity.CadastroClientesActivityPF;
 import com.afrd.limar.model.AdapterClienteParticular;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -23,6 +23,7 @@ public class ClienteParticularFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private AdapterClienteParticular adapter;
+
     public ClienteParticularFragment() {
         // Required empty public constructor
     }
@@ -33,9 +34,17 @@ public class ClienteParticularFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         View view = inflater.inflate(R.layout.fragment_cliente_particular2, container, false);
 
-
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.fabClientes);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CadastroClientesActivityPF.class);
+                startActivity(intent);
+            }
+        });
 
         AdapterClienteParticular adapterClienteParticular = new AdapterClienteParticular();
 

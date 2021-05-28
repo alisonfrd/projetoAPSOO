@@ -20,6 +20,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class ClienteActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,14 +28,14 @@ public class ClienteActivity extends AppCompatActivity {
         //configurando o BottomNavigation
         configuraBottomNavigationView();
 
-        FloatingActionButton floatingActionButton = findViewById(R.id.fabClientes);
+        /*FloatingActionButton floatingActionButton = findViewById(R.id.fabClientes);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), CadastroClientesActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
 
     }

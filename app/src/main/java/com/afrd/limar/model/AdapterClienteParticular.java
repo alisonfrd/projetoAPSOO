@@ -12,9 +12,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.afrd.limar.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 import static com.afrd.limar.R.drawable.logo_ar;
 
 public class AdapterClienteParticular extends RecyclerView.Adapter<AdapterClienteParticular.MyViewHolder> {
+
+    ArrayList<String> arrayDeClientes = new ArrayList<>();
+
+    public AdapterClienteParticular() {
+        arrayDeClientes.add("Abner");
+        arrayDeClientes.add("Burisvaldo");
+        arrayDeClientes.add("Cleudistonho");
+        arrayDeClientes.add("Darbiano");
+        arrayDeClientes.add("Marciano");
+        arrayDeClientes.add("NElson");
+        arrayDeClientes.add("Xaviado");
+    }
 
     @NonNull
     @Override
@@ -26,7 +40,7 @@ public class AdapterClienteParticular extends RecyclerView.Adapter<AdapterClient
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        holder.nome.setText("teste");
+        holder.nome.setText(arrayDeClientes.get(position).toString());
 
 
     }
@@ -34,7 +48,7 @@ public class AdapterClienteParticular extends RecyclerView.Adapter<AdapterClient
     @Override
     public int getItemCount() {
 
-        return 20;
+        return arrayDeClientes.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

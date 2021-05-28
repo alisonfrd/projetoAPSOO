@@ -7,14 +7,7 @@
     android:orientation="vertical"
     tools:context=".activity.ClienteActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAtendimentos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|top"
-        android:layout_margin="8dp"
-        android:contentDescription="Add"
-        android:src="@drawable/ic_add_atendimentos" />
+
 
     <FrameLayout
         android:id="@+id/viewPagerAtendimentos"

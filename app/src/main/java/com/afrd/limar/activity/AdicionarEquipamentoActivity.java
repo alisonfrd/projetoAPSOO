@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.afrd.limar.R;
 
-public class CadastroClientesActivity extends AppCompatActivity {
+public class AdicionarEquipamentoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_clientes);
+        setContentView(R.layout.activity_adicionar_equipamento);
     }
 }

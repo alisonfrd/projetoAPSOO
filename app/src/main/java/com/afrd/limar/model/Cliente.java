@@ -2,12 +2,24 @@ package com.afrd.limar.model;
 
 public class Cliente {
     private String nome;
-    private String cpf;
-    private int idade;
-    private int img;
+    private String endereco;
+    private String telefoneFixo;
+    private String celular;
+    private String cidade;
+    private String email;
+
+    public Cliente(String nome, String endereco, String telefoneFixo, String celular, String cidade, String email) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefoneFixo = telefoneFixo;
+        this.celular = celular;
+        this.cidade = cidade;
+        this.email = email;
+    }
 
     public Cliente() {
     }
+
 
     public String getNome() {
         return nome;
@@ -17,27 +29,43 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getTelefoneFixo() {
+        return telefoneFixo;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setTelefoneFixo(String telefoneFixo) {
+        this.telefoneFixo = telefoneFixo;
     }
 
-    public int getImg() {
-        return img;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setImg(int img) {
-        this.img = img;
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

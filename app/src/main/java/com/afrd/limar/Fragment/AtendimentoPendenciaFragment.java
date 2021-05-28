@@ -1,5 +1,6 @@
 package com.afrd.limar.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.afrd.limar.R;
+import com.afrd.limar.activity.CadastroAtendimentoActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +64,16 @@ public class AtendimentoPendenciaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_atendimento_pendencia, container, false);
+        View view = inflater.inflate(R.layout.fragment_atendimento_pendencia, container, false);
+
+        FloatingActionButton floatingActionButton = view.findViewById(R.id.fabAtendimentos);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), CadastroAtendimentoActivity.class);
+                startActivity(intent);
+            }
+        });
+        return view;
     }
 }

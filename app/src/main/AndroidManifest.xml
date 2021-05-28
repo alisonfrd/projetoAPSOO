@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Limar">
-        <activity android:name=".activity.CadastroClientesActivity"></activity>
+        <activity android:name=".activity.AdicionarEquipamentoActivity"></activity>
+        <activity android:name=".activity.CadastroItemEstoque" />
+        <activity android:name=".activity.CadastroAtendimentoActivity" />
+        <activity android:name=".activity.CadastroClienteActivityPJ" />
+        <activity android:name=".activity.CadastroClientesActivityPF" />
         <activity android:name=".activity.AtendimentosActivity" />
         <activity android:name=".activity.EstoqueActivity" />
         <activity android:name=".activity.ClienteActivity" />
