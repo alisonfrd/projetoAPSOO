@@ -6,13 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.ClienteEmpresaFragment">
 
+    <include layout="@layout/toobar"/>
+
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerClienteEmpresa"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Lista de Clientes Empresa"
-        android:gravity="center"
-        android:textSize="18sp" />
+        android:layout_marginTop="55dp"
+        android:padding="10dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabClientes"
@@ -22,6 +24,7 @@
         android:layout_margin="0dp"
         android:contentDescription="Add"
         android:src="@drawable/ic_add"
+
         app:backgroundTint="@color/white" />
 
 </FrameLayout>

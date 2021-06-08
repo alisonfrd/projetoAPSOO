@@ -5,126 +5,189 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/azul2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="20dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="20dp"
-    android:layout_marginRight="20dp"
+    android:padding="20dp"
     android:gravity="center|top"
     android:orientation="vertical"
-    tools:context=".activity.CadastroClientesActivityPF">
+    tools:context=".activity.CadastroClienteActivityPJ">
+
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outlinedTextFieldNomePJ"
+        android:id="@+id/inputNomepj"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Nome">
+
+        app:startIconDrawable = "@drawable/ic_pessoa"
+        app:startIconTint="@color/white"
+        app:errorEnabled="true"
+        app:boxStrokeColor="@color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldNomePj"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Nome"
+
+            android:inputType="text"
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outlinedTextFieldCnpjPF"
+        android:id="@+id/inputCnpj"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="CPNJ">
+        app:startIconDrawable = "@drawable/ic_cpf_cnpj"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+
+        app:errorEnabled="true"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldCnpj"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="CNPJ"
+            android:textColor="@color/white"
+            android:inputType="number"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outlinedTextFieldIEPJ"
+        android:id="@+id/inputCnpjIE"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="IE">
+        app:startIconDrawable = "@drawable/ic_insc_estadual"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+        app:errorEnabled="true"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldInscEstadual"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Inscrição Estadual"
+            android:inputType="date"
+            android:textColor="@color/white"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outlinedTextFieldTelefonePJ"
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Telefone">
+        app:startIconDrawable = "@drawable/ic_telefone"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldTelefonePJ"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Telefone"
+            android:inputType="phone"
+            android:textColor="@color/white"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outlinedTextFieldEmailPJ"
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Email">
+        app:startIconDrawable = "@drawable/ic_email"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldEmailPJ"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outlinedTextFieldEnderecoPJ"
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Endereço">
+        app:startIconDrawable = "@drawable/ic_endereco"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldEnderecoPJ"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Endereço"
+            android:textColor="@color/white"
+            android:inputType="text"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outlinedTextFieldCidadePJ"
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Cidade">
+        app:startIconDrawable = "@drawable/ic_cidade"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldCidadePJ"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Cidade"
+            android:textColor="@color/white"
+            android:inputType="text"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <Button
         android:id="@+id/buttonSalvarDadosPJ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:onClick="addCLientePJ"
         android:text="Salvar"
         app:backgroundTint="@color/azul5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

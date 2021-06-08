@@ -5,29 +5,35 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/azul2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="20dp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="20dp"
-    android:layout_marginRight="20dp"
+    android:padding="20dp"
     android:gravity="center|top"
     android:orientation="vertical"
     tools:context=".activity.CadastroClientesActivityPF">
 
     <com.google.android.material.textfield.TextInputLayout
-
+        android:id="@+id/inputNomePF"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Nome">
+
+        app:startIconDrawable = "@drawable/ic_pessoa"
+        app:startIconTint="@color/white"
+        app:errorEnabled="true"
+        app:boxStrokeColor="@color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/outlinedTextFieldNomePF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Nome"
+
+            android:inputType="text"
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -37,12 +43,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="CPF">
+        app:startIconDrawable = "@drawable/ic_cpf_cnpj"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+
+
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/outlinedTextFieldCpfPF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="CPF"
+            android:textColor="@color/white"
+            android:inputType="number"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,12 +67,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Data Nascimento">
+        app:startIconDrawable = "@drawable/ic_data_nascimento"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/outlinedTextFieldDtNasPF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Data Nascimento"
+            android:inputType="date"
+            android:textColor="@color/white"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,12 +89,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Telefone">
+        app:startIconDrawable = "@drawable/ic_telefone"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/outlinedTextFieldTelefonePF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Telefone"
+            android:inputType="phone"
+            android:textColor="@color/white"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,12 +112,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Email">
+        app:startIconDrawable = "@drawable/ic_email"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/outlinedTextFieldEmailPF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,12 +134,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Endereço">
+        app:startIconDrawable = "@drawable/ic_endereco"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/outlinedTextFieldEnderecoPF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Endereço"
+            android:textColor="@color/white"
+            android:inputType="text"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,12 +156,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:hint="Cidade">
+        app:startIconDrawable = "@drawable/ic_cidade"
+        app:startIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/outlinedTextFieldCidadePF"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="Cidade"
+            android:textColor="@color/white"
+            android:inputType="text"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -127,7 +178,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:onClick="addCLiente"
+        android:onClick="addCLientePF"
         android:text="Salvar"
         app:backgroundTint="@color/azul5"
         app:layout_constraintBottom_toBottomOf="parent"

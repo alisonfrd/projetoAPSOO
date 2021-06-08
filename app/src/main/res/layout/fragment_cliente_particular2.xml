@@ -5,12 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Fragment.ClienteParticularFragment">
+
+    <include layout="@layout/toobar"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerClienteParticular"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
         android:padding="10dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
