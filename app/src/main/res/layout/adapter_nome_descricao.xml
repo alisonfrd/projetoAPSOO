@@ -9,6 +9,6 @@
         android:id="@+id/textViewNome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nome do fulano"
+        android:text="Nome ou descricao"
         android:textSize="18sp" />
 </LinearLayout>

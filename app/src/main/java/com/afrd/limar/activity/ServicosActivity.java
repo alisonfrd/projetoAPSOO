@@ -10,11 +10,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.afrd.limar.AlteraDadosServico;
 import com.afrd.limar.Helper.RecyclerItemClickListener;
 import com.afrd.limar.R;
 import com.afrd.limar.model.AdapterMateriais;
+import com.afrd.limar.model.AdapterServicos;
 import com.afrd.limar.model.Materiais;
+import com.afrd.limar.model.Servico;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,39 +28,41 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MateriaisActivity extends AppCompatActivity {
-
+public class ServicosActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private AdapterMateriais adapterMateriais;
-    private DatabaseReference materiaisReference = FirebaseDatabase.getInstance("https://projetolimar-53f6e-default-rtdb.firebaseio.com/").getReference().child("materiais") ;
-    private ArrayList<Materiais> listaMateriais = new ArrayList<>();
+    private AdapterServicos adapterServicos;
+    private DatabaseReference servicosReference = FirebaseDatabase.getInstance("https://projetolimar-53f6e-default-rtdb.firebaseio.com/").getReference().child("servicos") ;
+    private ArrayList<Servico> listaServico = new ArrayList<>();
     private ValueEventListener valueEventListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_materiais);
+        setContentView(R.layout.activity_servicos);
 
 
         //Configuração do Botão flutuante
-        FloatingActionButton floatingActionButton = findViewById(R.id.fabEstoque);
+        FloatingActionButton floatingActionButton = findViewById(R.id.fabServicos);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CadastroMateriais.class);
+                Intent intent = new Intent(getApplicationContext(), CadastroServicosActivity.class);
                 startActivity(intent);
             }
         });
 
         //Configuração do recyclerVliew
-        adapterMateriais = new AdapterMateriais(listaMateriais);
-        recyclerView = findViewById(R.id.recyclerMateriais);
+
+        adapterServicos = new AdapterServicos(listaServico);
+        recyclerView = findViewById(R.id.recyclerServicos);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), LinearLayout.VERTICAL));
 
-        recyclerView.setAdapter(adapterMateriais);
+        recyclerView.setAdapter(adapterServicos);
+
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
                 getApplicationContext(),
@@ -64,18 +70,15 @@ public class MateriaisActivity extends AppCompatActivity {
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Materiais attMateriais = listaMateriais.get(position);
-                        Intent i = new Intent(getApplicationContext(), AlteraDadosMateriais.class);
+                        Servico attservico = listaServico.get( position );
+                        Intent i = new Intent(getApplicationContext(), AlteraDadosServico.class);
 
-                        i.putExtra("id", String.valueOf(attMateriais.getId()));
-                        i.putExtra("quantidade", String.valueOf(attMateriais.getQuantidade()));
-                        i.putExtra("fornecedor", attMateriais.getFornecedor());
-                        i.putExtra("descricao", attMateriais.getDescricao());
-                        i.putExtra("unidade", attMateriais.getUnidade());
-                        i.putExtra("valorCusto", String.valueOf(attMateriais.getValorCusto()));
-                        i.putExtra("valorVenda", String.valueOf(attMateriais.getValorVenda()));
-                        i.putExtra("key", attMateriais.getKey());
+                        i.putExtra("id", attservico.getCodigo());
+                        i.putExtra("descricao", attservico.getDescricao());
+                        i.putExtra("valor", attservico.getValor());
+                        i.putExtra("key", attservico.getKey());
                         startActivity(i);
+
                     }
 
                     @Override
@@ -90,12 +93,7 @@ public class MateriaisActivity extends AppCompatActivity {
                 }
         ));
 
-
-
-
-
     }
-
 
     @Override
     public void onStart() {
@@ -106,27 +104,27 @@ public class MateriaisActivity extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-        listaMateriais.clear();
-        materiaisReference.removeEventListener(valueEventListener);
+        listaServico.clear();
+        servicosReference.removeEventListener(valueEventListener);
     }
 
     public void recuperarDados(){
 
-        valueEventListener= materiaisReference.addValueEventListener(new ValueEventListener() {
+        valueEventListener= servicosReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 
                 for(DataSnapshot data: snapshot.getChildren()){
 
-                    Materiais materiais = data.getValue(Materiais.class);
-                    materiais.setKey(data.getKey());
+                    Servico servico = data.getValue(Servico.class);
+                    servico.setKey(data.getKey());
 
-                    listaMateriais.add(materiais);
+                    listaServico.add(servico);
 
 
 
                 }
-                adapterMateriais.notifyDataSetChanged();
+                adapterServicos.notifyDataSetChanged();
 
 
             }

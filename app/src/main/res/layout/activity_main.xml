@@ -98,19 +98,20 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:onClick="startActivityServiços"
         android:text="Serviços"
-        app:backgroundTint="@color/azul5"
         android:textColor="@color/azul1"
+        app:backgroundTint="@color/azul5"
         app:icon="@drawable/ic_servicos"
         app:iconGravity="textTop"
         app:iconTint="@color/azul1"
-        app:rippleColor="@color/white"
 
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/outlinedButtonAntendimentos" />
+        app:layout_constraintTop_toBottomOf="@+id/outlinedButtonAntendimentos"
+        app:rippleColor="@color/white" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

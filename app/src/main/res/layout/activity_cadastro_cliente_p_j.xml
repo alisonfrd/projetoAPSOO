@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-
-
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent">
+
+<androidx.appcompat.widget.LinearLayoutCompat
+
+
+
     android:background="@color/azul2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -43,7 +49,6 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         app:startIconDrawable = "@drawable/ic_cpf_cnpj"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -67,7 +72,6 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         app:startIconDrawable = "@drawable/ic_insc_estadual"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -90,7 +94,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="20dp"
         app:startIconDrawable = "@drawable/ic_telefone"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -113,7 +117,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="20dp"
         app:startIconDrawable = "@drawable/ic_email"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -135,7 +139,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="20dp"
         app:startIconDrawable = "@drawable/ic_endereco"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -157,7 +161,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="1dp"
         app:startIconDrawable = "@drawable/ic_cidade"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -191,3 +195,4 @@
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

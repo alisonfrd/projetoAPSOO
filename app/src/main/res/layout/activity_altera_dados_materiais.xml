@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/azul2"
+    android:fillViewport="true"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.AlteraDadosMateriais"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            app:boxStrokeColor="@color/white"
+            app:startIconDrawable = "@drawable/ic_codigo"
+            app:startIconTint="@color/white"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/outlinedTextFieldCodigoAltera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:hint="Codigo"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            app:boxStrokeColor="@color/white"
+            app:startIconDrawable = "@drawable/ic_cpf_cnpj"
+            app:startIconTint="@color/white"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/outlinedTextFieldDescricaoAltera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrição"
+                android:textColor="@color/white"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            app:boxStrokeColor="@color/white"
+            app:startIconDrawable = "@drawable/ic_unidade"
+            app:startIconTint="@color/white"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/outlinedTextFieldUnidadeAltera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Unidade"
+                android:textColor="@color/white"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            app:boxStrokeColor="@color/white"
+            app:startIconDrawable = "@drawable/ic_valor_custo"
+            app:startIconTint="@color/white"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/outlinedTextFieldValorCustoAltera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Valor de Custo"
+                android:textColor="@color/white"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            app:boxStrokeColor="@color/white"
+            app:startIconDrawable = "@drawable/ic_valor_venda"
+            app:startIconTint="@color/white"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/outlinedTextFieldValorVendaAltera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Valor de Venda"
+                android:textColor="@color/white"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            app:boxStrokeColor="@color/white"
+            app:startIconDrawable = "@drawable/ic_quantidade"
+            app:startIconTint="@color/white"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/outlinedTextFieldQuantidadeAltera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Quantidade"
+                android:textColor="@color/white"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="5dp"
+            app:boxStrokeColor="@color/white"
+            app:startIconDrawable = "@drawable/ic_forncedor"
+            app:startIconTint="@color/white"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/outlinedTextFieldFornecedorAltera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Fornecedor"
+                android:textColor="@color/white"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonSalvarVoltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:drawableLeft="@drawable/ic_voltar"
+                android:onClick="voltar"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:backgroundTint="@color/white"
+                app:iconPadding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonSalvar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:drawableLeft="@drawable/ic_salvar"
+                android:onClick="salvar"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:backgroundTint="@color/noturno3"
+                app:iconPadding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonDell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/ic_delete"
+                android:onClick="deletarMaterial"
+                android:paddingLeft="30dp"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:backgroundTint="@android:color/holo_red_light"
+                app:iconPadding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

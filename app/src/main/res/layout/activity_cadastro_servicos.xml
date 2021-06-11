@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:background="@color/azul2"
+android:fillViewport="true"
+android:layout_height="match_parent" android:layout_width="match_parent">
+
+<androidx.appcompat.widget.LinearLayoutCompat
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CadastroServicosActivity"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"
+        app:boxStrokeColor="@color/white"
+        app:startIconDrawable = "@drawable/ic_codigo"
+        app:startIconTint="@color/white"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldCodigoServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:hint="Codigo"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"
+        app:boxStrokeColor="@color/white"
+        app:startIconDrawable = "@drawable/ic_cpf_cnpj"
+        app:startIconTint="@color/white"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldDescricaoServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrição"
+            android:textColor="@color/white"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"
+        app:boxStrokeColor="@color/white"
+        app:startIconDrawable = "@drawable/ic_valor_venda"
+        app:startIconTint="@color/white"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/outlinedTextFieldValorServico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Valor"
+            android:textColor="@color/white"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/salvarServico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:onClick="salvarDadosServicos"
+
+
+            android:text="Salvar"
+            app:backgroundTint="@color/azul5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

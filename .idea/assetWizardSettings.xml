@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../Android/Sdk/icons/material/materialicons/delete_forever/baseline_delete_forever_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../../Android/Sdk/icons/material/materialicons/shopping_cart/baseline_shopping_cart_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -34,7 +34,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="11000e" />
-                            <entry key="outputName" value="ic_delete" />
+                            <entry key="outputName" value="ic_forncedor" />
                             <entry key="sourceFile" value="D:\Documentos\AndroidStudioProjects\Limar" />
                           </map>
                         </option>

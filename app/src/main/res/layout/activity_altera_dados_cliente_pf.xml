@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+     android:layout_height="match_parent"  android:layout_width="match_parent">
+<androidx.appcompat.widget.LinearLayoutCompat
+
     android:background="@color/azul2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -40,7 +44,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="25dp"
         app:startIconDrawable = "@drawable/ic_cpf_cnpj"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -64,7 +68,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="25dp"
         app:startIconDrawable = "@drawable/ic_data_nascimento"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -86,7 +90,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="25dp"
         app:startIconDrawable = "@drawable/ic_telefone"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -109,7 +113,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="25dp"
         app:startIconDrawable = "@drawable/ic_email"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -131,7 +135,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="25dp"
         app:startIconDrawable = "@drawable/ic_endereco"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -153,7 +157,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="2dp"
         app:startIconDrawable = "@drawable/ic_cidade"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
@@ -174,6 +178,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
@@ -182,10 +187,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:layout_weight="2"
             android:drawableLeft="@drawable/ic_voltar"
             android:onClick="voltar"
-            android:text="Voltar"
             android:textColor="@color/black"
             android:textSize="10sp"
             app:backgroundTint="@color/white"
@@ -200,10 +203,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:layout_weight="1"
             android:drawableLeft="@drawable/ic_salvar"
             android:onClick="salvar"
-            android:text="Atualizar"
             android:textColor="@color/black"
             android:textSize="10sp"
             app:backgroundTint="@color/noturno3"
@@ -217,7 +218,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_weight="2"
             android:drawableLeft="@drawable/ic_delete"
             android:onClick="deletarPF"
             android:paddingLeft="30dp"
@@ -231,3 +231,4 @@
     </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>
