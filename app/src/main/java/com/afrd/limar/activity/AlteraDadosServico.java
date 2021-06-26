@@ -1,4 +1,4 @@
-package com.afrd.limar;
+package com.afrd.limar.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.afrd.limar.R;
 import com.afrd.limar.activity.ServicosActivity;
 import com.afrd.limar.model.Materiais;
 import com.afrd.limar.model.Servico;

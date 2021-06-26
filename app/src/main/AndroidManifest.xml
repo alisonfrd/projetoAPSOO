@@ -9,22 +9,54 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Limar">
-
-        <activity android:name=".AlteraDadosServico" android:screenOrientation="portrait"></activity>
-        <activity android:name=".activity.CadastroServicosActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ServicosActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.AlteraDadosMateriais" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.AlteraDadosClientePJ" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.AlteraDadosClientePF" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.AdicionarEquipamentoActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.CadastroMateriais" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.CadastroAtendimentoActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.CadastroClienteActivityPJ" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.CadastroClientesActivityPF" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.AtendimentosActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.MateriaisActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ClienteActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".activity.MainActivity"
+        <activity android:name=".activity.AdicionarEquipamentoEmAtendimentoActivity"></activity>
+        <activity android:name=".activity.AdicionarServicoActivity" />
+        <activity android:name=".activity.AdicionarQuantidadeDoItemActivity" />
+        <activity android:name=".activity.AdicionarMaterialActivity" />
+        <activity
+            android:name=".activity.AlteraDadosServico"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CadastroServicosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ServicosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AlteraDadosMateriais"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AlteraDadosClientePJ"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AlteraDadosClientePF"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AdicionarEquipamentoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CadastroMateriais"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CadastroAtendimentoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CadastroClienteActivityPJ"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CadastroClientesActivityPF"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AtendimentosActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MateriaisActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ClienteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

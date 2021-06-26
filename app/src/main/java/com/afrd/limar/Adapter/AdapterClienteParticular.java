@@ -1,4 +1,4 @@
-package com.afrd.limar.model;
+package com.afrd.limar.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.afrd.limar.R;
+import com.afrd.limar.model.ClientePessoaFisica;
 
 import java.util.ArrayList;
 import java.util.Collections;

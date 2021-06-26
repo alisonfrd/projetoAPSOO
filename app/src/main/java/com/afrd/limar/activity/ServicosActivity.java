@@ -12,12 +12,9 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.afrd.limar.AlteraDadosServico;
 import com.afrd.limar.Helper.RecyclerItemClickListener;
 import com.afrd.limar.R;
-import com.afrd.limar.model.AdapterMateriais;
-import com.afrd.limar.model.AdapterServicos;
-import com.afrd.limar.model.Materiais;
+import com.afrd.limar.Adapter.AdapterServicos;
 import com.afrd.limar.model.Servico;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -63,6 +60,10 @@ public class ServicosActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapterServicos);
 
+        //Recuperar dado de verificação para saber se o usuario clickou para Cadastro de material ou para adicionar o material em um atendimento
+        Intent intent = getIntent();
+        String value = intent.getStringExtra("chaveServico");
+
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
                 getApplicationContext(),
@@ -70,14 +71,28 @@ public class ServicosActivity extends AppCompatActivity {
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Servico attservico = listaServico.get( position );
-                        Intent i = new Intent(getApplicationContext(), AlteraDadosServico.class);
+                        if(value == null){
+                            Servico attservico = listaServico.get( position );
+                            Intent i = new Intent(getApplicationContext(), AlteraDadosServico.class);
 
-                        i.putExtra("id", attservico.getCodigo());
-                        i.putExtra("descricao", attservico.getDescricao());
-                        i.putExtra("valor", attservico.getValor());
-                        i.putExtra("key", attservico.getKey());
-                        startActivity(i);
+                            i.putExtra("id", attservico.getCodigo());
+                            i.putExtra("descricao", attservico.getDescricao());
+                            i.putExtra("valor", attservico.getValor());
+                            i.putExtra("key", attservico.getKey());
+                            startActivity(i);
+                        }else if(value.compareToIgnoreCase("1") == 0){
+                            Servico resultServico = listaServico.get( position );
+                            Intent result = new Intent();
+                            result.putExtra("id", resultServico.getCodigo());
+                            result.putExtra("descricao", resultServico.getDescricao());
+                            result.putExtra("valor", resultServico.getValor());
+                            result.putExtra("key", resultServico.getKey());
+                            //Toast.makeText(ServicosActivity.this, "" +resultServico.getValor(), Toast.LENGTH_SHORT).show();
+                            setResult(RESULT_OK,result );
+                            finish();
+
+                        }
+
 
                     }
 

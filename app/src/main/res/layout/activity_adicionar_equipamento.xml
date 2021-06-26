@@ -146,17 +146,20 @@
             android:layout_marginRight="15dp"
             android:text="Nivel de Ruído" />
 
-        <SeekBar
-            android:id="@+id/seekBar2"
-            android:layout_width="fill_parent"
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="slider"
+            android:value="0.0"
+            android:valueFrom="0.0"
+            android:valueTo="200.0"
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginRight="15dp"
-            android:layout_marginBottom="10dp"
-            android:max="300"
-            android:progress="10" />
+
+            />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -182,6 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:onClick="salvarEquipamento"
             android:text="Salvar"
             app:backgroundTint="@color/azul5"
             app:layout_constraintBottom_toBottomOf="parent"

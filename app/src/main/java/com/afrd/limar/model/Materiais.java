@@ -94,6 +94,11 @@ public class Materiais implements Serializable, Comparable<Materiais>{
 
     @Override
     public int compareTo(Materiais o) {
+        if(this.getDescricao().compareToIgnoreCase(o.getDescricao()) > 0){
+            return 1;
+        }else if(this.getDescricao().compareToIgnoreCase(o.getDescricao()) < 0){
+            return -1;
+        }
         return 0;
     }
 }

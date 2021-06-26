@@ -1,5 +1,6 @@
 package com.afrd.limar.Fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,13 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.afrd.limar.activity.AlteraDadosClientePJ;
 import com.afrd.limar.Helper.RecyclerItemClickListener;
 import com.afrd.limar.R;
 import com.afrd.limar.activity.CadastroClienteActivityPJ;
-import com.afrd.limar.model.AdapterClienteEmpresa;
+import com.afrd.limar.Adapter.AdapterClienteEmpresa;
 import com.afrd.limar.model.ClientePessoaJuridica;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -77,6 +77,9 @@ public class ClienteEmpresaFragment extends Fragment {
 
         recyclerView.setAdapter(adapter);
 
+        Intent intent = getActivity().getIntent();
+        String value = intent.getStringExtra("chaveCadastro");
+
         //Add event click
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(
@@ -85,19 +88,40 @@ public class ClienteEmpresaFragment extends Fragment {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                ClientePessoaJuridica attCliente= listaCLientePJ.get(position);
-                                Intent i = new Intent(getActivity(), AlteraDadosClientePJ.class);
-                                //i.putExtra("clientepf", attLista);
+                                if(value == null){
+                                    ClientePessoaJuridica attCliente= listaCLientePJ.get(position);
+                                    Intent i = new Intent(getActivity(), AlteraDadosClientePJ.class);
+                                    //i.putExtra("clientepf", attLista);
 
-                                i.putExtra("nome", attCliente.getNome());
-                                i.putExtra("cnpj", attCliente.getCnpj());
-                                i.putExtra("inscricaoEstadual", attCliente.getInscricaoEstadual());
-                                i.putExtra("celular", attCliente.getCelular());
-                                i.putExtra("email", attCliente.getEmail());
-                                i.putExtra("endereco", attCliente.getEndereco());
-                                i.putExtra("cidade", attCliente.getCidade());
-                                i.putExtra("key", attCliente.getKey());
-                                startActivity(i);
+                                    i.putExtra("nome", attCliente.getNome());
+                                    i.putExtra("cnpj", attCliente.getCnpj());
+                                    i.putExtra("inscricaoEstadual", attCliente.getInscricaoEstadual());
+                                    i.putExtra("celular", attCliente.getCelular());
+                                    i.putExtra("email", attCliente.getEmail());
+                                    i.putExtra("endereco", attCliente.getEndereco());
+                                    i.putExtra("cidade", attCliente.getCidade());
+                                    i.putExtra("key", attCliente.getKey());
+                                    startActivity(i);
+                                }else if (value.compareTo("1") == 0){
+                                    //Mandar objeto para activiti de cadastro de Atendiementos
+
+                                    ClientePessoaJuridica returnCliente= listaCLientePJ.get(position);
+
+                                    Intent result = new Intent();
+                                    result.putExtra("valida", "clienteCNPJ");
+                                    result.putExtra("nome", returnCliente.getNome());
+                                    result.putExtra("cnpj", returnCliente.getCnpj());
+                                    result.putExtra("inscricaoEstadual", returnCliente.getInscricaoEstadual());
+                                    result.putExtra("celular", returnCliente.getCelular());
+                                    result.putExtra("email", returnCliente.getEmail());
+                                    result.putExtra("endereco", returnCliente.getEndereco());
+                                    result.putExtra("cidade", returnCliente.getCidade());
+                                    result.putExtra("key", returnCliente.getKey());
+                                    getActivity().setResult(Activity.RESULT_OK, result);
+                                    getActivity().finish();
+
+                                }
+
                             }
 
                             @Override
@@ -115,6 +139,7 @@ public class ClienteEmpresaFragment extends Fragment {
 
         return view;
     }
+
 
     @Override
     public void onStart() {

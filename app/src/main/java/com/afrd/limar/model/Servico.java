@@ -2,7 +2,7 @@ package com.afrd.limar.model;
 
 import java.io.Serializable;
 
-public class Servico implements Serializable, Comparable<Materiais>{
+public class Servico implements Serializable, Comparable<Servico>{
     private String codigo;
     private String descricao;
     private double valor;
@@ -48,8 +48,14 @@ public class Servico implements Serializable, Comparable<Materiais>{
         this.key = key;
     }
 
+
     @Override
-    public int compareTo(Materiais o) {
+    public int compareTo(Servico o) {
+        if(this.getDescricao().compareToIgnoreCase(o.getDescricao()) > 0){
+            return 1;
+        }else if(this.getDescricao().compareToIgnoreCase(o.getDescricao()) < 0){
+            return -1;
+        }
         return 0;
     }
 }

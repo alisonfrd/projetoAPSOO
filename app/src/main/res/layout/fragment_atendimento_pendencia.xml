@@ -21,6 +21,7 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="8dp"
         android:contentDescription="Add"
+        android:backgroundTint="@color/white"
         android:src="@drawable/ic_add_atendimentos" />
 
 </FrameLayout>

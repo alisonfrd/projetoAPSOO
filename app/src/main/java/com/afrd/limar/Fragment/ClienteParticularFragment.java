@@ -1,31 +1,26 @@
 package com.afrd.limar.Fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.afrd.limar.Helper.RecyclerItemClickListener;
 import com.afrd.limar.R;
 import com.afrd.limar.activity.AlteraDadosClientePF;
 import com.afrd.limar.activity.CadastroClientesActivityPF;
-import com.afrd.limar.model.AdapterClienteParticular;
-import com.afrd.limar.model.Cliente;
+import com.afrd.limar.Adapter.AdapterClienteParticular;
 import com.afrd.limar.model.ClientePessoaFisica;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -42,6 +37,7 @@ public class ClienteParticularFragment extends Fragment {
     private RecyclerView recyclerView;
     private AdapterClienteParticular adapter;
     private DatabaseReference clientespfReference = FirebaseDatabase.getInstance("https://projetolimar-53f6e-default-rtdb.firebaseio.com/").getReference().child("clientePF") ;
+    private DatabaseReference clientespfReferenceAtendimento = FirebaseDatabase.getInstance("https://projetolimar-53f6e-default-rtdb.firebaseio.com/").getReference();
     private ArrayList<ClientePessoaFisica> listaCLientePf = new ArrayList<>();
     private ValueEventListener valueEventListener;
     public ClienteParticularFragment() {
@@ -83,7 +79,9 @@ public class ClienteParticularFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
-        //Envento de clicl//
+        Intent intent = getActivity().getIntent();
+        String value = intent.getStringExtra("chaveCadastro");
+
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(
                         getActivity(),
@@ -91,21 +89,47 @@ public class ClienteParticularFragment extends Fragment {
                         new RecyclerItemClickListener.OnItemClickListener() {
                             @Override
                             public void onItemClick(View view, int position) {
+                                if(value == null){
 
-                                ClientePessoaFisica attCliente= listaCLientePf.get(position);
-                                Intent i = new Intent(getActivity(), AlteraDadosClientePF.class);
-                                //i.putExtra("clientepf", attLista);
+                                    ClientePessoaFisica attCliente = listaCLientePf.get(position);
+                                    Intent i = new Intent(getActivity(), AlteraDadosClientePF.class);
+                                    //i.putExtra("clientepf", attLista);
 
-                                i.putExtra("nome", attCliente.getNome());
-                                i.putExtra("cpf", attCliente.getCpf());
-                                i.putExtra("nasc", attCliente.getDataNascimento());
-                                i.putExtra("celular", attCliente.getCelular());
-                                i.putExtra("email", attCliente.getEmail());
-                                i.putExtra("endereco", attCliente.getEndereco());
-                                i.putExtra("cidade", attCliente.getCidade());
-                                i.putExtra("key", attCliente.getKey());
+                                    i.putExtra("nome", attCliente.getNome());
+                                    i.putExtra("cpf", attCliente.getCpf());
+                                    i.putExtra("nasc", attCliente.getDataNascimento());
+                                    i.putExtra("celular", attCliente.getCelular());
+                                    i.putExtra("email", attCliente.getEmail());
+                                    i.putExtra("endereco", attCliente.getEndereco());
+                                    i.putExtra("cidade", attCliente.getCidade());
+                                    i.putExtra("key", attCliente.getKey());
 
-                                startActivity(i);
+                                    startActivity(i);
+                                }else if(value.compareTo("1")==0){
+                                    //Mandar objeto
+                                    ClientePessoaFisica returnCliente= listaCLientePf.get(position);
+
+                                    Intent result = new Intent();
+                                    result.putExtra("valida", "clienteCPF");
+                                    result.putExtra("nome", returnCliente.getNome());
+                                    result.putExtra("cpf", returnCliente.getCpf());
+                                    result.putExtra("nasc", returnCliente.getDataNascimento());
+                                    result.putExtra("celular", returnCliente.getCelular());
+                                    result.putExtra("email", returnCliente.getEmail());
+                                    result.putExtra("endereco", returnCliente.getEndereco());
+                                    result.putExtra("cidade", returnCliente.getCidade());
+                                    result.putExtra("key", returnCliente.getKey());
+
+                                    //TESTE Salvar este usuário no BD para atendimento
+                                    /*DatabaseReference atendimentos = clientespfReferenceAtendimento.child("atendimentos");
+                                    atendimentos.push().setValue(returnCliente);*/
+
+                                    getActivity().setResult(Activity.RESULT_OK, result);
+                                    getActivity().finish();
+                                }
+
+
+
                             }
 
                             @Override
@@ -120,6 +144,10 @@ public class ClienteParticularFragment extends Fragment {
                         }
                 )
         );
+
+
+        //Envento de clicl//
+
 
 
 
@@ -155,6 +183,7 @@ public class ClienteParticularFragment extends Fragment {
 
                     ClientePessoaFisica clientePessoaFisica = data.getValue(ClientePessoaFisica.class);
                     clientePessoaFisica.setKey(data.getKey());
+
 
                     listaCLientePf.add(clientePessoaFisica);
 

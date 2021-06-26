@@ -1,15 +1,16 @@
-package com.afrd.limar.model;
+package com.afrd.limar.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.afrd.limar.R;
+import com.afrd.limar.model.Materiais;
 
+import java.util.Collections;
 import java.util.List;
 
 public class AdapterMateriais extends RecyclerView.Adapter<AdapterMateriais.MyViewHolder> {
@@ -29,7 +30,10 @@ public class AdapterMateriais extends RecyclerView.Adapter<AdapterMateriais.MyVi
 
     @Override
     public void onBindViewHolder(AdapterMateriais.MyViewHolder holder, int position) {
+        Collections.sort(listaMateriais);
         Materiais materiais = listaMateriais.get(position);
+
+
 
         holder.descricao.setText(materiais.getDescricao());
         holder.quantidade.setText(String.valueOf(materiais.getQuantidade()));

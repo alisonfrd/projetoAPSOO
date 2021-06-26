@@ -1,4 +1,4 @@
-package com.afrd.limar.model;
+package com.afrd.limar.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,43 +9,43 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.afrd.limar.R;
+import com.afrd.limar.model.MaterialEmAtendimento;
+import com.afrd.limar.model.Servico;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class AdapterServicos extends RecyclerView.Adapter<AdapterServicos.MyViewHolder> {
+public class AdapterAddServicosEmAtendimento extends RecyclerView.Adapter<AdapterAddServicosEmAtendimento.MyViewHolder> {
 
+    List<Servico> lista;
 
-    private List<Servico> listaServico;
-
-    public AdapterServicos(ArrayList<Servico> listaServico) {
-        this.listaServico = listaServico;
+    public AdapterAddServicosEmAtendimento(List<Servico> lista) {
+        this.lista = lista;
     }
 
-
+    private RecyclerView recyclerView;
+    private AdapterServicos adapterServicos;
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemList = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_servicos, parent, false);
-        return new MyViewHolder(itemList);
+        return new AdapterAddServicosEmAtendimento.MyViewHolder(itemList);
     }
 
     @Override
-    public void onBindViewHolder(AdapterServicos.MyViewHolder holder, int position) {
-        Servico servico = listaServico.get( position );
-        holder.descricao.setText( servico.getDescricao());
-        holder.valor.setText(String.valueOf(servico.getValor()));
+    public void onBindViewHolder(AdapterAddServicosEmAtendimento.MyViewHolder holder, int position) {
+        Servico servico = lista.get( position );
+        holder.valor.setText(""+ servico.getValor());
+        holder.descricao.setText(servico.getDescricao());
     }
 
     @Override
     public int getItemCount() {
-        return listaServico.size();
+        return lista.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView descricao, valor;
         public MyViewHolder(View itemView) {
             super(itemView);
-
             descricao = itemView.findViewById(R.id.textViewDescricaoServico);
             valor = itemView.findViewById(R.id.textViewValorServico);
         }

@@ -3,14 +3,14 @@ package com.afrd.limar.model;
 import java.util.Date;
 
 public class Atendimento {
-    private int numAntendimento;
+    private int numAntendimento ;
     private String descricaoAtendimento;
-    private Date dataIncio;
-    private Date horaInicio;
-    private Date horaFim;
+    private String dataIncio;
+    private String horaInicio;
+    private String horaFim;
     private String status;
 
-    public Atendimento(int numAntendimento, String descricaoAtendimento, Date dataIncio, Date horaInicio, Date horaFim, String status) {
+    public Atendimento(int numAntendimento, String descricaoAtendimento, String dataIncio, String horaInicio, String horaFim, String status) {
         this.numAntendimento = numAntendimento;
         this.descricaoAtendimento = descricaoAtendimento;
         this.dataIncio = dataIncio;
@@ -35,27 +35,27 @@ public class Atendimento {
         this.descricaoAtendimento = descricaoAtendimento;
     }
 
-    public Date getDataIncio() {
+    public String getDataIncio() {
         return dataIncio;
     }
 
-    public void setDataIncio(Date dataIncio) {
+    public void setDataIncio(String dataIncio) {
         this.dataIncio = dataIncio;
     }
 
-    public Date getHoraInicio() {
+    public String getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(Date horaInicio) {
+    public void setHoraInicio(String horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public Date getHoraFim() {
+    public String getHoraFim() {
         return horaFim;
     }
 
-    public void setHoraFim(Date horaFim) {
+    public void setHoraFim(String horaFim) {
         this.horaFim = horaFim;
     }
 
