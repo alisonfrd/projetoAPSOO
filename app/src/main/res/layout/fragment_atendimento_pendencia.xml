@@ -6,14 +6,12 @@
     tools:context=".Fragment.AtendimentoPendenciaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerAtendimentoPendente"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Lista de Atendimentos Pendentes"
-        android:gravity="center"
-        android:textSize="18sp"
-        />
+        android:padding="10dp" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAtendimentos"
         android:layout_width="wrap_content"

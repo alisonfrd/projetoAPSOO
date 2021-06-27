@@ -183,6 +183,7 @@ public class ClienteParticularFragment extends Fragment {
 
     public void recuperarDados(){
 
+
         valueEventListener= clientespfReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -205,7 +206,7 @@ public class ClienteParticularFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError error) {
-
+                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

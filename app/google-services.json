@@ -1,79 +1,42 @@
 {
   "project_info": {
-    "project_number": "363728678255",
-    "firebase_url": "https://projetolimar-default-rtdb.firebaseio.com",
-    "project_id": "projetolimar",
-    "storage_bucket": "projetolimar.appspot.com"
+    "project_number": "576400742592",
+    "firebase_url": "https://projetolimar-53f6e-default-rtdb.firebaseio.com",
+    "project_id": "projetolimar-53f6e",
+    "storage_bucket": "projetolimar-53f6e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:363728678255:android:af09f05005ddbe9c788c9a",
-        "android_client_info": {
-          "package_name": "com.afrd.limaar"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "363728678255-hrpgajtorj86t8numr1rc0h05d09uq0n.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.afrd.limaar",
-            "certificate_hash": "df9b924829da44ae9ef755d927f1a4d265558f82"
-          }
-        },
-        {
-          "client_id": "363728678255-0h11fgce0dfd0l75a2r39f87lte03lu0.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCs-CmLd1H7k7sY9qqa3yBCd5cIs9ukJ_o"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "363728678255-0h11fgce0dfd0l75a2r39f87lte03lu0.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:363728678255:android:1b7504f0befeae79788c9a",
+        "mobilesdk_app_id": "1:576400742592:android:448519a40b7f7117e4f525",
         "android_client_info": {
           "package_name": "com.afrd.limar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "363728678255-7cqhe6rcefr5flqaai3dpkql5kfsdj34.apps.googleusercontent.com",
+          "client_id": "576400742592-pbbvvu6c4htg1ufkebcncbrag1eomngu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.afrd.limar",
-            "certificate_hash": "df9b924829da44ae9ef755d927f1a4d265558f82"
+            "certificate_hash": "7a85c414d132ea732dab5a067c3dfd9c16add956"
           }
         },
         {
-          "client_id": "363728678255-0h11fgce0dfd0l75a2r39f87lte03lu0.apps.googleusercontent.com",
+          "client_id": "576400742592-93art8osulumicj1nbddjtulv1sg3gm5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCs-CmLd1H7k7sY9qqa3yBCd5cIs9ukJ_o"
+          "current_key": "AIzaSyBwJjF5fkvGUfiwlattRFXvIYy5uBW-7rU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "363728678255-0h11fgce0dfd0l75a2r39f87lte03lu0.apps.googleusercontent.com",
+              "client_id": "576400742592-93art8osulumicj1nbddjtulv1sg3gm5.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

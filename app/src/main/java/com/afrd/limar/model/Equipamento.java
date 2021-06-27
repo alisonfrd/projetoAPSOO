@@ -11,14 +11,14 @@ public class Equipamento implements Serializable {
     private String capcidade;
     private String fabricante;
     private String tensaoEmOperação;
-    private double nivelDeRuido;
+    private String nivelDeRuido;
     private String condicoesGerais;
     private String key;
 
     public Equipamento() {
     }
 
-    public Equipamento(String codEquipamento, String ambiente, String tipoEquipamento, String modelo, String capcidade, String fabricante, String tensaoEmOperação, double nivelDeRuido, String condicoesGerais) {
+    public Equipamento(String codEquipamento, String ambiente, String tipoEquipamento, String modelo, String capcidade, String fabricante, String tensaoEmOperação, String nivelDeRuido, String condicoesGerais) {
         this.codEquipamento = codEquipamento;
         this.ambiente = ambiente;
         this.tipoEquipamento = tipoEquipamento;
@@ -86,11 +86,11 @@ public class Equipamento implements Serializable {
         this.tensaoEmOperação = tensaoEmOperação;
     }
 
-    public double getNivelDeRuido() {
+    public String getNivelDeRuido() {
         return nivelDeRuido;
     }
 
-    public void setNivelDeRuido(double nivelDeRuido) {
+    public void setNivelDeRuido(String nivelDeRuido) {
         this.nivelDeRuido = nivelDeRuido;
     }
 

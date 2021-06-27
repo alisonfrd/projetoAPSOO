@@ -188,7 +188,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
             android:drawableLeft="@drawable/ic_salvar"
+            android:gravity="center"
             android:onClick="salvarPJ"
+            android:paddingLeft="30dp"
+
             android:textColor="@color/black"
             android:textSize="10sp"
             app:backgroundTint="@color/noturno3"

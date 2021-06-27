@@ -76,7 +76,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:onClick="startActivityMateriais"
-        android:text="Materiais"
+        android:text="Itens"
         android:textColor="@color/azul1"
         app:backgroundTint="@color/azul5"
         app:icon="@drawable/ic_materiais"

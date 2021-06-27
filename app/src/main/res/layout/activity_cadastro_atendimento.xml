@@ -198,7 +198,7 @@
 
         android:layout_marginTop="8dp"
         android:onClick="addMaterial"
-        android:text="Materiais"
+        android:text="Itens"
         android:textColor="@color/azul1"
         app:backgroundTint="@color/azul5"
         app:icon="@drawable/ic_materiais"
@@ -220,7 +220,7 @@
 
         android:layout_marginTop="8dp"
         android:onClick="addEquipamento"
-        android:text="Ar"
+        android:text="AR"
         android:textColor="@color/azul1"
         app:backgroundTint="@color/azul5"
 

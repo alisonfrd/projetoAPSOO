@@ -1,5 +1,6 @@
 package com.afrd.limar.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Atendimento {
@@ -9,6 +10,11 @@ public class Atendimento {
     private String horaInicio;
     private String horaFim;
     private String status;
+
+
+
+    public Atendimento() {
+    }
 
     public Atendimento(int numAntendimento, String descricaoAtendimento, String dataIncio, String horaInicio, String horaFim, String status) {
         this.numAntendimento = numAntendimento;

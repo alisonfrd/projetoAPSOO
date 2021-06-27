@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -132,6 +133,11 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
         DatabaseReference atendimentos  = databaseReference.child("atendimentos");
         atendimentos.push().setValue(listaDeDadosDoAtendimento);
 
+
+
+
+
+
         finish();
     }
 
@@ -187,6 +193,8 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
                 }else if(data.getStringExtra("valida").compareTo("equipamentos")==0){
                     listaEquipamento = (ArrayList<Equipamento>) data.getSerializableExtra("listaRetorno");
                 }
+
+
             }
         }
     }

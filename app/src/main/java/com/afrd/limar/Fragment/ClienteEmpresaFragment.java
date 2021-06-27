@@ -54,7 +54,7 @@ public class ClienteEmpresaFragment extends Fragment {
 
         //Configurando a toobar
         Toolbar toolbar = view.findViewById(R.id.toolbarClientes);
-        toolbar.setTitle("Clientes CNPJ");
+        toolbar.setTitle("Clientes PJ");
 
 
         FloatingActionButton floatingActionButton = view.findViewById(R.id.fabClientes);

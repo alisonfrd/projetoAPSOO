@@ -84,7 +84,7 @@ public class AdicionarEquipamentoEmAtendimentoActivity extends AppCompatActivity
                 equipamento.setFabricante(data.getStringExtra("fabricante"));
                 equipamento.setTensaoEmOperação(data.getStringExtra("tensao"));
                 equipamento.setCondicoesGerais(data.getStringExtra("consideracoes"));
-                equipamento.setNivelDeRuido(data.getDoubleExtra("valorSlider", 0));
+                equipamento.setNivelDeRuido(data.getStringExtra("valorSlider"));
 
 
                 listaEquipamento.add(equipamento);

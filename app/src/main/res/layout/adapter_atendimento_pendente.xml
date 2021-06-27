@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textViewNomeCliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome Cliente"
+        android:textColor="@color/noturno2"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+
+        <TextView
+            android:id="@+id/textViewDataAtendimentoAdapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Data"
+            android:textColor="@color/noturno5"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewHoraAtendimentoAdapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hora"
+            android:textColor="@color/noturno5"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/textViewEnderecoAdapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Endereço"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/textViewCidadeAdapter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cidade"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+</LinearLayout>
