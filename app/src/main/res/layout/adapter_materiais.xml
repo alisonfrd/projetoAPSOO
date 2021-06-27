@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -7,9 +9,9 @@
 
     <TextView
         android:id="@+id/textViewDescricaoMaterial"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:text="Descrição"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -18,7 +20,7 @@
         android:id="@+id/textViewQtdMaterial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start"
+        android:layout_weight="0"
         android:paddingRight="20dp"
         android:text="Qtd"
         android:textSize="16sp" />
@@ -32,4 +34,15 @@
         android:paddingLeft="30dp"
         android:text="Valor"
         android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/imageButtonExcluirMatEqi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0"
+        android:background="@color/white"
+        android:padding="5dp"
+        app:srcCompat="@drawable/ic_delete"
+        tools:ignore="VectorDrawableCompat" />
 </LinearLayout>

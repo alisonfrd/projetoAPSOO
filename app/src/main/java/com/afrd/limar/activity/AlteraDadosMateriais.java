@@ -1,9 +1,12 @@
 package com.afrd.limar.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.afrd.limar.R;
@@ -34,6 +37,7 @@ public class AlteraDadosMateriais extends AppCompatActivity {
         TextFornecedor = findViewById(R.id.outlinedTextFieldFornecedorAltera);
 
         atualizarView();
+        deletarMaterial();
     }
 
     public void atualizarView(){
@@ -57,10 +61,6 @@ public class AlteraDadosMateriais extends AppCompatActivity {
         TextValorDeVenda.setText(valorVenda);
     }
 
-    public void voltar(View view){
-
-        finish();
-    }
     public void salvar(View view){
         materiaisReference.child(key).removeValue();
 
@@ -71,9 +71,42 @@ public class AlteraDadosMateriais extends AppCompatActivity {
         materiaisReference.push().setValue(materiais);
         finish();
     }
-    public void deletarMaterial(View view){
-        materiaisReference.child(key).removeValue();
+    public void deletarMaterial(){
+        Button buttonDell = findViewById(R.id.buttonDellMat);
+        buttonDell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(AlteraDadosMateriais.this);
+                builder.setMessage("Deseja Excluir?")
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                materiaisReference.child(key).removeValue();
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Cancelar", null);
+                AlertDialog alert = builder.create();
+                alert.show();
 
-        finish();
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(AlteraDadosMateriais.this);
+        builder.setTitle("Deseja Voltar?")
+                .setMessage("Os dados não serão salvos")
+                .setPositiveButton("Sair", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AlteraDadosMateriais.super.onBackPressed();
+                    }
+                })
+                .setNegativeButton("Cancelar", null);
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

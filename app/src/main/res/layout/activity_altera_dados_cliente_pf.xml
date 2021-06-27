@@ -21,7 +21,6 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
 
         app:startIconDrawable = "@drawable/ic_pessoa"
         app:startIconTint="@color/white"
@@ -40,15 +39,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-
+        android:id="@+id/inputCpfPFalterar"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
         app:startIconDrawable = "@drawable/ic_cpf_cnpj"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
-
+        app:errorEnabled="true"
 
         >
 
@@ -64,14 +62,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-
+        android:id="@+id/inputDNPFalterar"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
         app:startIconDrawable = "@drawable/ic_data_nascimento"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
+        app:errorEnabled="true"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -90,11 +88,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
         app:startIconDrawable = "@drawable/ic_telefone"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
-
+        android:id="@+id/inputTelePFalterar"
+        app:errorEnabled="true"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -182,22 +180,6 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonSalvarVoltar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="5dp"
-            android:drawableLeft="@drawable/ic_voltar"
-            android:onClick="voltar"
-            android:textColor="@color/black"
-            android:textSize="10sp"
-            app:backgroundTint="@color/white"
-            app:iconPadding="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
             android:id="@+id/buttonSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -214,12 +196,11 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/buttonDell"
+            android:id="@+id/buttonDellPF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/ic_delete"
-            android:onClick="deletarPF"
             android:paddingLeft="30dp"
             android:textColor="@color/black"
             android:textSize="10sp"

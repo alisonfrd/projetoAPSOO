@@ -1,9 +1,12 @@
 package com.afrd.limar.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.afrd.limar.R;
@@ -30,6 +33,7 @@ public class AlteraDadosServico extends AppCompatActivity {
         textValor = findViewById(R.id.outlinedTextFieldValorServicoAltera);
 
         atualizarView();
+        deletarServico();
     }
 
     public void atualizarView(){
@@ -46,10 +50,7 @@ public class AlteraDadosServico extends AppCompatActivity {
 
     }
 
-    public void voltarServico(View view){
 
-        finish();
-    }
     public void salvarServico(View view){
         servicosReference.child(key).removeValue();
 
@@ -59,9 +60,42 @@ public class AlteraDadosServico extends AppCompatActivity {
         servicosReference.push().setValue(servico);
         finish();
     }
-    public void deletarServico(View view){
-        servicosReference.child(key).removeValue();
+    public void deletarServico(){
+        Button buttonDell = findViewById(R.id.buttonDellServicos);
+        buttonDell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(AlteraDadosServico.this);
+                builder.setMessage("Deseja Excluir?")
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                servicosReference.child(key).removeValue();
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Cancelar", null);
+                AlertDialog alert = builder.create();
+                alert.show();
 
-        finish();
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(AlteraDadosServico.this);
+        builder.setTitle("Deseja Voltar?")
+                .setMessage("Os dados não serão salvos")
+                .setPositiveButton("Sair", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AlteraDadosServico.super.onBackPressed();
+                    }
+                })
+                .setNegativeButton("Cancelar", null);
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

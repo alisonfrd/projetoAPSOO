@@ -17,6 +17,8 @@ import com.afrd.limar.model.ClientePessoaJuridica;
 import com.afrd.limar.model.Equipamento;
 import com.afrd.limar.model.MaterialEmAtendimento;
 import com.afrd.limar.model.Servico;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -60,6 +62,9 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
         textHoraFim = findViewById(R.id.textHoraFim);
         radioGroup = findViewById(R.id.radioGroup);
 
+        //apply mask
+        maskData();
+        maskHora();
 
     }
     public Atendimento criaDadosAtendimento(){
@@ -108,7 +113,6 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
     }
     public void salvarAtendimento(View view){
         listaDeDadosDoAtendimento.add(criaDadosAtendimento());
-
         listaDeDadosDoAtendimento.add(listaMateriais);
         listaDeDadosDoAtendimento.add(listaServicos);
         listaDeDadosDoAtendimento.add(listaEquipamento);
@@ -185,5 +189,18 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
                 }
             }
         }
+    }
+
+    public void maskData(){
+        SimpleMaskFormatter smf =  new SimpleMaskFormatter("NN/NN/NNNN");
+        MaskTextWatcher mtw = new MaskTextWatcher(textDataAtendimento, smf);
+        textDataAtendimento.addTextChangedListener(mtw);
+    }
+    public void maskHora(){
+        SimpleMaskFormatter smf =  new SimpleMaskFormatter("NN:NN");
+        MaskTextWatcher mtw = new MaskTextWatcher(textHoraInicio, smf);
+        MaskTextWatcher mtw2 = new MaskTextWatcher(textHoraFim, smf);
+        textHoraInicio.addTextChangedListener(mtw);
+        textHoraFim.addTextChangedListener(mtw2);
     }
 }

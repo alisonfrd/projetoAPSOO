@@ -90,14 +90,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-
+        android:id="@+id/inputCnpjTele"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         app:startIconDrawable = "@drawable/ic_telefone"
         app:startIconTint="@color/white"
         app:boxStrokeColor="@color/white"
+        app:errorEnabled="true"
 
         >
 

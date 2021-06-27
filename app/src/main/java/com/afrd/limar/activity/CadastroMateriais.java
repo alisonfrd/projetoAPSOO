@@ -1,7 +1,9 @@
 package com.afrd.limar.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 
@@ -34,13 +36,31 @@ public class CadastroMateriais extends AppCompatActivity {
     public void salvarDados(View view){
         Materiais materiais = new Materiais(Integer.parseInt(codigo.getText().toString()), Integer.parseInt(quantidade.getText().toString()), fornecedor.getText().toString(),
                 descricao.getText().toString(), unidade.getText().toString(),Double.parseDouble(valorDeCusto.getText().toString()),Double.parseDouble(valorDeVenda.getText().toString()));
-
-
-
         DatabaseReference materialReference = databaseReference.child("materiais");
         materialReference.push().setValue(materiais);
-
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(!codigo.getText().toString().isEmpty() || !quantidade.getText().toString().isEmpty() || !fornecedor.getText().toString().isEmpty()
+        || !descricao.getText().toString().isEmpty() || !unidade.getText().toString().isEmpty() || !valorDeCusto.getText().toString().isEmpty()
+        || !valorDeVenda.getText().toString().isEmpty()){
+            AlertDialog.Builder builder = new AlertDialog.Builder(CadastroMateriais.this);
+            builder.setTitle("Deseja Voltar?")
+                    .setMessage("Os dados não serão salvos")
+                    .setPositiveButton("Sair", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            CadastroMateriais.super.onBackPressed();
+                        }
+                    })
+                    .setNegativeButton("Cancelar", null);
+            AlertDialog alert = builder.create();
+            alert.show();
+        }else{
+            CadastroMateriais.super.onBackPressed();
+        }
 
     }
 }

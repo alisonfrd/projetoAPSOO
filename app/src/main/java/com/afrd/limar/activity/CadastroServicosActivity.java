@@ -1,7 +1,9 @@
 package com.afrd.limar.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 
@@ -41,5 +43,26 @@ public class CadastroServicosActivity extends AppCompatActivity {
 
         finish();
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(!textCodigo.getText().toString().isEmpty() || !textDescricao.getText().toString().isEmpty() || !textValor.getText().toString().isEmpty()
+        ){
+            AlertDialog.Builder builder = new AlertDialog.Builder(CadastroServicosActivity.this);
+            builder.setTitle("Deseja Voltar?")
+                    .setMessage("Os dados não serão salvos")
+                    .setPositiveButton("Sair", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            CadastroServicosActivity.super.onBackPressed();
+                        }
+                    })
+                    .setNegativeButton("Cancelar", null);
+            AlertDialog alert = builder.create();
+            alert.show();
+        }else{
+            CadastroServicosActivity.super.onBackPressed();
+        }
     }
 }

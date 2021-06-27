@@ -48,7 +48,7 @@ public class AdicionarMaterialActivity extends AppCompatActivity {
         listMateriais = (ArrayList<MaterialEmAtendimento>) i.getSerializableExtra("listaMateriais");
 
         //setting recyclerView
-        adapterAddMateriaisEmAtendimento = new AdapterAddMateriaisEmAtendimento(listMateriais);
+        adapterAddMateriaisEmAtendimento = new AdapterAddMateriaisEmAtendimento(listMateriais, attVoltar);
         recyclerView = findViewById(R.id.recyclerMateriaisAdicionarAtendimento);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -141,7 +141,7 @@ public class AdicionarMaterialActivity extends AppCompatActivity {
 
 
 
-                adapterAddMateriaisEmAtendimento = new AdapterAddMateriaisEmAtendimento(listMateriais);
+                adapterAddMateriaisEmAtendimento = new AdapterAddMateriaisEmAtendimento(listMateriais,attVoltar);
                 recyclerView = findViewById(R.id.recyclerMateriaisAdicionarAtendimento);
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
                 recyclerView.setLayoutManager(layoutManager);

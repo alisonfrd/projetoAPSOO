@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.afrd.limar.Helper.RecyclerItemClickListener;
 import com.afrd.limar.R;
@@ -29,6 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -55,16 +57,20 @@ public class ClienteParticularFragment extends Fragment {
 
         //Configurando a toobar
         Toolbar toolbar = view.findViewById(R.id.toolbarClientes);
-        toolbar.setTitle("Clientes");
+        toolbar.setTitle("Clientes PF");
 
         FloatingActionButton floatingActionButton = view.findViewById(R.id.fabClientes);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CadastroClientesActivityPF.class);
+                intent.putExtra("listaConferePf", (Serializable) listaCLientePf);
                 startActivity(intent);
             }
         });
+
+
+
 
         adapter = new AdapterClienteParticular(listaCLientePf);
 
@@ -103,6 +109,8 @@ public class ClienteParticularFragment extends Fragment {
                                     i.putExtra("endereco", attCliente.getEndereco());
                                     i.putExtra("cidade", attCliente.getCidade());
                                     i.putExtra("key", attCliente.getKey());
+
+                                    i.putExtra("listaAlteraPF", (Serializable) listaCLientePf);
 
                                     startActivity(i);
                                 }else if(value.compareTo("1")==0){

@@ -3,6 +3,7 @@ package com.afrd.limar.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,7 +32,20 @@ public class AdapterAddEquipamentoEmAtendimento extends RecyclerView.Adapter<Ada
         Equipamento equipamento = listEquipamento.get( position );
         holder.modelo.setText(equipamento.getModelo());
         holder.tipo.setText(equipamento.getTipoEquipamento());
-        holder.ambiente.setText(equipamento.getModelo());
+        holder.ambiente.setText(equipamento.getAmbiente());
+
+        holder.imageButtonExcluirMatEqi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removerItem(position);
+            }
+        });
+    }
+
+    public void removerItem(int position){
+        listEquipamento.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, listEquipamento.size());
     }
 
     @Override
@@ -41,12 +55,14 @@ public class AdapterAddEquipamentoEmAtendimento extends RecyclerView.Adapter<Ada
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView modelo, tipo, ambiente;
+        private ImageButton imageButtonExcluirMatEqi;
         public MyViewHolder(View itemView) {
             super(itemView);
 
             modelo = itemView.findViewById(R.id.textViewDescricaoMaterial);
             tipo = itemView.findViewById(R.id.textViewQtdMaterial);
             ambiente = itemView.findViewById(R.id.textViewValorMaterial);
+            imageButtonExcluirMatEqi = itemView.findViewById(R.id.imageButtonExcluirMatEqi);
         }
     }
 

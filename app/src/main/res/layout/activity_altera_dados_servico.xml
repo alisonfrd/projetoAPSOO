@@ -105,22 +105,6 @@ android:layout_height="match_parent" android:layout_width="match_parent">
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/buttonSalvarVoltar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="5dp"
-            android:drawableLeft="@drawable/ic_voltar"
-            android:onClick="voltarServico"
-            android:textColor="@color/black"
-            android:textSize="10sp"
-            app:backgroundTint="@color/white"
-            app:iconPadding="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
             android:id="@+id/buttonSalvar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -137,12 +121,11 @@ android:layout_height="match_parent" android:layout_width="match_parent">
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/buttonDell"
+            android:id="@+id/buttonDellServicos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/ic_delete"
-            android:onClick="deletarServico"
             android:paddingLeft="30dp"
             android:textColor="@color/black"
             android:textSize="10sp"

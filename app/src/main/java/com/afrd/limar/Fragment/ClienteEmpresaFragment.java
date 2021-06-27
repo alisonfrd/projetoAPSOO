@@ -29,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -53,7 +54,7 @@ public class ClienteEmpresaFragment extends Fragment {
 
         //Configurando a toobar
         Toolbar toolbar = view.findViewById(R.id.toolbarClientes);
-        toolbar.setTitle("Clientes");
+        toolbar.setTitle("Clientes CNPJ");
 
 
         FloatingActionButton floatingActionButton = view.findViewById(R.id.fabClientes);
@@ -61,6 +62,7 @@ public class ClienteEmpresaFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CadastroClienteActivityPJ.class);
+                intent.putExtra("listaAlteraVerifica", (Serializable) listaCLientePJ);
                 startActivity(intent);
             }
         });
@@ -101,6 +103,8 @@ public class ClienteEmpresaFragment extends Fragment {
                                     i.putExtra("endereco", attCliente.getEndereco());
                                     i.putExtra("cidade", attCliente.getCidade());
                                     i.putExtra("key", attCliente.getKey());
+                                    i.putExtra("listaClienteVerifica", (Serializable) listaCLientePJ);
+
                                     startActivity(i);
                                 }else if (value.compareTo("1") == 0){
                                     //Mandar objeto para activiti de cadastro de Atendiementos

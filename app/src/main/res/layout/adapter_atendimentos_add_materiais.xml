@@ -28,21 +28,33 @@
             android:id="@+id/textViewQtdMaterialAdapter"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0"
             android:gravity="center|left"
+            android:paddingRight="20dp"
             android:text="Qtd"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewValorMaterialAdapter"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0"
             android:gravity="center|left"
+            android:paddingLeft="10dp"
             android:text="Valor:"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/imageButtonRemAddMaterial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@color/white"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_delete"
+            tools:ignore="VectorDrawableCompat" />
 
     </LinearLayout>
 

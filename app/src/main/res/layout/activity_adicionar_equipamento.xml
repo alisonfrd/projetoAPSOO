@@ -14,125 +14,92 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="15dp"
         tools:context=".activity.AdicionarEquipamentoActivity">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:hint="Código">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/outlinedTextFieldCodEquipamento"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="15dp" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:hint="Ambiente">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/outlinedTextFieldAmbiente"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="15dp" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:hint="Tipo de equipamento">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/outlinedTextFieldTipoEquipamento"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="15dp" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:hint="Modelo">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/outlinedTextFieldModelo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="15dp" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+
             android:hint="Capacidade">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/outlinedTextFieldCapacidade"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="15dp" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:hint="Fabricante">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/outlinedTextFieldFabricante"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="15dp" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:hint="Tensão em operação">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/outlinedTextFieldTensaoemOp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginRight="15dp" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -150,14 +117,16 @@
             android:id="@+id/slider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="slider"
-            android:value="0.0"
-            android:valueFrom="0.0"
-            android:valueTo="200.0"
             android:layout_marginStart="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="15dp"
+            android:contentDescription="slider"
+            android:value="0.0"
+            android:valueFrom="0.0"
+            android:valueTo="200.0"
+            app:trackColorActive="@color/azul1"
+            android:outlineAmbientShadowColor="@color/white"
 
             />
 

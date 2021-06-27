@@ -20,6 +20,8 @@ import com.afrd.limar.activity.MateriaisActivity;
 import com.afrd.limar.activity.ServicosActivity;
 import com.afrd.limar.model.MaterialEmAtendimento;
 import com.afrd.limar.model.Servico;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.Serializable;
@@ -30,6 +32,10 @@ public class AdicionarServicoActivity extends AppCompatActivity {
     private ArrayList<Servico> listaServico = new ArrayList<>();
     private RecyclerView recyclerView;
     private AdapterAddServicosEmAtendimento adapteraddServicosEmAtendimento;
+
+    //atributos de entrada do atendimento
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,4 +122,6 @@ public class AdicionarServicoActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

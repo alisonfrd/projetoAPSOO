@@ -3,6 +3,7 @@ package com.afrd.limar.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,8 +34,21 @@ public class AdapterAddServicosEmAtendimento extends RecyclerView.Adapter<Adapte
     @Override
     public void onBindViewHolder(AdapterAddServicosEmAtendimento.MyViewHolder holder, int position) {
         Servico servico = lista.get( position );
-        holder.valor.setText(""+ servico.getValor());
+        holder.valor.setText("R$"+ servico.getValor());
         holder.descricao.setText(servico.getDescricao());
+
+        holder.imageButtonExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removerItem(position);
+            }
+        });
+    }
+
+    public void removerItem(int position){
+        lista.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, lista.size());
     }
 
     @Override
@@ -44,10 +58,12 @@ public class AdapterAddServicosEmAtendimento extends RecyclerView.Adapter<Adapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         private TextView descricao, valor;
+        private ImageButton imageButtonExcluir;
         public MyViewHolder(View itemView) {
             super(itemView);
             descricao = itemView.findViewById(R.id.textViewDescricaoServico);
             valor = itemView.findViewById(R.id.textViewValorServico);
+            imageButtonExcluir = itemView.findViewById(R.id.imageButtonExcluir);
         }
     }
 }
