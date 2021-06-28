@@ -55,13 +55,13 @@ public class AdapterAddMateriaisEmAtendimento extends RecyclerView.Adapter<Adapt
             holder.quantidade.setText(String.valueOf(listaMateriais.getQuantidade()));
             holder.valor.setText(String.valueOf(listaMateriais.getValorVenda()));
 
-            holder.imageButtonRemAddMaterial.setOnClickListener(new View.OnClickListener() {
+            /*holder.imageButtonRemAddMaterial.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     removerItem(position);
 
                 }
-            });
+            });*/
     }
 
     public void removerItem(int position){

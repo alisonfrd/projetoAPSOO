@@ -12,14 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.SearchEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.afrd.limar.Adapter.AdapterAtendimentoPendente;
 import com.afrd.limar.Adapter.AdapterClienteParticular;
+import com.afrd.limar.Helper.RecyclerItemClickListener;
 import com.afrd.limar.R;
 import com.afrd.limar.activity.CadastroAtendimentoActivity;
 import com.afrd.limar.model.Atendimento;
@@ -37,6 +40,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -56,9 +60,15 @@ public class AtendimentoPendenciaFragment extends Fragment {
 
     private  ArrayList<ArrayList> listaGeral = new ArrayList<>();
 
-    ArrayList<MaterialEmAtendimento> materialEmAtendimentos = new ArrayList<>();
-    ArrayList<Servico> listServicos = new ArrayList<>();
-    ArrayList<Equipamento> listEquipamento = new ArrayList<>();
+    private ArrayList<MaterialEmAtendimento> materialEmAtendimentos = new ArrayList<>();
+    private ArrayList<Servico> listServicos = new ArrayList<>();
+    private ArrayList<Equipamento> listEquipamento = new ArrayList<>();
+    private ArrayList<String> keys = new ArrayList<>();
+
+    //valores para passar intens
+    ArrayList<Integer> quantidadeItens = new ArrayList<Integer>();
+    ArrayList<Integer> quantidadeEquip = new ArrayList<Integer>();
+    ArrayList<Integer> quantidadeServ = new ArrayList<Integer>();
 
 
     @Override
@@ -92,12 +102,94 @@ public class AtendimentoPendenciaFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(view.getContext(), LinearLayout.VERTICAL));
         recyclerView.setAdapter(adapter);
 
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
+                getActivity(),
+                recyclerView,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        ArrayList<MaterialEmAtendimento> materialEmAtendimentos = new ArrayList<>();
+                        ArrayList<MaterialEmAtendimento> materialEmAtendimentos2 = new ArrayList<>();
+                        ArrayList<Servico> servicos = new ArrayList<>();
+                        ArrayList<Servico> servicos2 = new ArrayList<>();
+                        ArrayList<Equipamento> equipamentos = new ArrayList<>();
+                        ArrayList<Equipamento> equipamentos2 = new ArrayList<>();
+                        Intent intent = new Intent(getActivity(), CadastroAtendimentoActivity.class);
+                        Atendimento atttt = (Atendimento) ((ArrayList)listaGeral.get( position )).get(0);
+                        materialEmAtendimentos = (ArrayList<MaterialEmAtendimento>) ((ArrayList)listaGeral.get( position )).get(1);
+                        servicos = (ArrayList<Servico>) ((ArrayList)listaGeral.get( position )).get(2);
+                        equipamentos = (ArrayList<Equipamento>) ((ArrayList)listaGeral.get( position )).get(3);
+                        ClientePessoaFisica clientePessoaFisicaEncaminha = (ClientePessoaFisica) ((ArrayList)listaGeral.get( position )).get(4);
+                        Double valorTotal = (Double) ((ArrayList)listaGeral.get( position )).get(5);
+
+
+                        int limiteIten = quantidadeItens.get(position);
+                        int limiteEqui = quantidadeEquip.get(position);
+                        int limiteServ = quantidadeServ.get(position);
+                        int i= 0;
+                        int j= 0;
+                        int k= 0;
+                        while (limiteIten > 0){
+                            materialEmAtendimentos2.add(materialEmAtendimentos.get(i));
+                            i++;
+                            limiteIten --;
+                        }
+                        while (limiteServ > 0){
+                            if(servicos != null){
+                                servicos2.add(servicos.get(j));
+
+                            }
+                            j ++;
+                            limiteServ --;
+                        }
+
+                        while (limiteEqui > 0){
+
+                            equipamentos2.add(equipamentos.get(k));
+                            k ++;
+                            limiteEqui --;
+                        }
+
+
+                        intent.putExtra("objAtendimento", (Serializable) atttt);
+                        intent.putExtra("listMateriais", (Serializable) materialEmAtendimentos2);
+                        intent.putExtra("listServico", (Serializable) servicos2);
+                        intent.putExtra("listaEquipamento", (Serializable) equipamentos2);
+                        //passar dados cliente nome, celular, endereco, cidade,cnpj,inscricaoEstadual,cpf,nasc, email;
+                        intent.putExtra("nome",  clientePessoaFisicaEncaminha.getNome());
+                        intent.putExtra("celular",  clientePessoaFisicaEncaminha.getCelular());
+                        intent.putExtra("endereco",  clientePessoaFisicaEncaminha.getEndereco());
+                        intent.putExtra("cidade",  clientePessoaFisicaEncaminha.getCidade());
+                        intent.putExtra("cpf",  clientePessoaFisicaEncaminha.getCpf());
+                        intent.putExtra("nasc",  clientePessoaFisicaEncaminha.getDataNascimento());
+                        intent.putExtra("email",  clientePessoaFisicaEncaminha.getEmail());
+                        intent.putExtra("key", keys.get(position));
+                        //
+                        intent.putExtra("valorTotal", valorTotal);
+                        intent.putExtra("validaEntrada", "1");
+
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    }
+                }
+        ));
+
 
 
 
 
         return view;
     }
+
 
     @Override
     public void onStart() {
@@ -123,6 +215,8 @@ public class AtendimentoPendenciaFragment extends Fragment {
 
                 for (DataSnapshot data : snapshot.getChildren()) {
                     //ArrayList<Object> obj = (ArrayList<Object>) data.getValue();
+                    keys.add(data.getKey());
+
                     ArrayList<Object> listaDeDadosDoAtendimento = new ArrayList<>();
 
 
@@ -137,19 +231,31 @@ public class AtendimentoPendenciaFragment extends Fragment {
                     String descricao;
                     String key ;
                     long quantidade ;
-                    long valorVenda ;
+                    long valorVenda = 0;
+
                     if (listObjItens != null){
                         for(int i=0; i<listObjItens.size(); i++){
                             descricao= (String) ((HashMap)listObjItens.get(i)).get("descricao");
                             key = (String) ((HashMap)listObjItens.get(i)).get("key");
                             quantidade = (long) ((HashMap)listObjItens.get(i)).get("quantidade");
-                            valorVenda = (long) ((HashMap)listObjItens.get(i)).get("valorVenda");
+                            try {
+                                valorVenda = (long) ((HashMap)listObjItens.get(i)).get("valorVenda");
+
+                            }catch (Exception ex){
+                                Long l = new Long(valorVenda);
+                                double valor = l.doubleValue();
+                                valorVenda = 0;
+                            }
                             materialEmAtendimento = new MaterialEmAtendimento(descricao,key, valorVenda, (int)quantidade );
 
                             materialEmAtendimentos.add(materialEmAtendimento);
 
 
                         }
+                        quantidadeItens.add(listObjItens.size());
+
+                    }else{
+                        quantidadeItens.add(0);
                     }
                     listaDeDadosDoAtendimento.add(materialEmAtendimentos);
 
@@ -175,7 +281,11 @@ public class AtendimentoPendenciaFragment extends Fragment {
 
 
                         }
+                        quantidadeServ.add(listaObjServico.size());
+                    }else{
+                        quantidadeServ.add(0);
                     }
+
                     listaDeDadosDoAtendimento.add(listServicos);
 
                     ArrayList<Object> listaEquipamento = (ArrayList<Object>) data.child("3").getValue();
@@ -211,6 +321,9 @@ public class AtendimentoPendenciaFragment extends Fragment {
 
 
                         }
+                        quantidadeEquip.add(listaEquipamento.size());
+                    }else{
+                        quantidadeEquip.add(0);
                     }
                     listaDeDadosDoAtendimento.add(listEquipamento);
 
@@ -219,6 +332,9 @@ public class AtendimentoPendenciaFragment extends Fragment {
 
                     ClientePessoaFisica clientePessoaFisica =  data.child("4").getValue(ClientePessoaFisica.class);
                     listaDeDadosDoAtendimento.add(clientePessoaFisica);
+
+                    Double totalAtendimento = data.child("5").getValue(Double.class);
+                    listaDeDadosDoAtendimento.add(totalAtendimento);
 
 
                     if(status.compareToIgnoreCase("Pendente") == 0){

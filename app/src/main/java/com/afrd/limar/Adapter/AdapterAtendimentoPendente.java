@@ -39,12 +39,16 @@ public class AdapterAtendimentoPendente extends RecyclerView.Adapter<AdapterAten
     public void onBindViewHolder(AdapterAtendimentoPendente.MyViewHolder holder, int position) {
         Atendimento atttt = (Atendimento) ((ArrayList)listaDeDadosDoAtendimento.get( position )).get(0);
         ClientePessoaFisica cliente = (ClientePessoaFisica) ((ArrayList)listaDeDadosDoAtendimento.get( position )).get(4);
-
+        Double valor = (Double) ((ArrayList)listaDeDadosDoAtendimento.get( position )).get(5);
+        if(valor == null){
+            valor = 0.0;
+        }
         holder.textViewNomeCliente.setText(cliente.getNome());
-        holder.textViewDataAtendimentoAdapter.setText(atttt.getDataIncio());
-        holder.textViewHoraAtendimentoAdapter.setText(atttt.getHoraInicio());
-        holder.textViewEnderecoAdapter.setText(cliente.getEndereco());
-        holder.textViewCidadeAdapter.setText(cliente.getCidade());
+        holder.textViewDataAtendimentoAdapter.setText("Data: " + atttt.getDataIncio());
+        holder.textViewHoraAtendimentoAdapter.setText("Hora: " + atttt.getHoraInicio());
+        holder.textViewEnderecoAdapter.setText("End: " + cliente.getEndereco());
+        holder.textViewCidadeAdapter.setText("Cidade: " + cliente.getCidade());
+        holder.textViewTotalAdapter.setText("Total: R$" + String.valueOf(valor));
 
     }
 
@@ -54,7 +58,7 @@ public class AdapterAtendimentoPendente extends RecyclerView.Adapter<AdapterAten
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView textViewNomeCliente,textViewDataAtendimentoAdapter,textViewHoraAtendimentoAdapter,textViewEnderecoAdapter,textViewCidadeAdapter;
+        private TextView textViewNomeCliente,textViewDataAtendimentoAdapter,textViewHoraAtendimentoAdapter,textViewEnderecoAdapter,textViewCidadeAdapter,textViewTotalAdapter;
         public MyViewHolder( View itemView) {
             super(itemView);
 
@@ -63,6 +67,8 @@ public class AdapterAtendimentoPendente extends RecyclerView.Adapter<AdapterAten
             textViewHoraAtendimentoAdapter = itemView.findViewById(R.id.textViewHoraAtendimentoAdapter);
             textViewEnderecoAdapter = itemView.findViewById(R.id.textViewEnderecoAdapter);
             textViewCidadeAdapter = itemView.findViewById(R.id.textViewCidadeAdapter);
+            textViewTotalAdapter = itemView.findViewById(R.id.textViewTotalAdapter);
+
         }
     }
 

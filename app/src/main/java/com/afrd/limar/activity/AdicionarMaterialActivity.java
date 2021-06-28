@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -36,7 +37,7 @@ public class AdicionarMaterialActivity extends AppCompatActivity {
     private String descricao, key,unidade, forncedor,id;
     private int quantidadeEmEstoque =0 , quantidadeUsada = 0;
     private double valorVenda, valorCusto;
-
+    private double totalVenda = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +77,7 @@ public class AdicionarMaterialActivity extends AppCompatActivity {
     public void buttonFinalizarAddMaterial(View view){
         Intent result = new Intent();
         result.putExtra("valida","materiais");
+        result.putExtra("valoTotal", this.totalVenda);
         result.putExtra("listaRetorno",(Serializable) listMateriais);
 
 
@@ -112,6 +114,8 @@ public class AdicionarMaterialActivity extends AppCompatActivity {
                 this.quantidadeEmEstoque = data.getIntExtra("quantidade", 0);
                 this.valorCusto = data.getDoubleExtra("valorCusto", 0 );
                 this.valorVenda = data.getDoubleExtra("valorVenda", 0);
+
+                this.totalVenda += valorVenda * quantidadeUsada;
                 //Lista para atualizar o Bd em caso de usuario voltar
                 materiaisAtt = new Materiais();
                 materiaisAtt.setDescricao(descricao);

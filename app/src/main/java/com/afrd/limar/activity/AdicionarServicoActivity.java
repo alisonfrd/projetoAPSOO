@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class AdicionarServicoActivity extends AppCompatActivity {
     private AdapterAddServicosEmAtendimento adapteraddServicosEmAtendimento;
 
     //atributos de entrada do atendimento
-
+    private double totalServico = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,7 @@ public class AdicionarServicoActivity extends AppCompatActivity {
     public void buttonFinalizarAddServico(View view){
         Intent result = new Intent();
         result.putExtra("valida","servicos");
+        result.putExtra("totalServico", totalServico);
         result.putExtra("listaRetorno",(Serializable) listaServico);
 
 
@@ -101,6 +103,9 @@ public class AdicionarServicoActivity extends AppCompatActivity {
                 String descricao = data.getStringExtra("descricao");
                 double valor = data.getDoubleExtra("valor", 0);
                 String key = data.getStringExtra("key");
+
+                totalServico += valor;
+
 
 
                 Servico returnServico = new Servico(id, descricao, valor);

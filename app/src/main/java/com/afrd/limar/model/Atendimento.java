@@ -1,9 +1,10 @@
 package com.afrd.limar.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Atendimento {
+public class Atendimento implements Serializable {
     private int numAntendimento ;
     private String descricaoAtendimento;
     private String dataIncio;

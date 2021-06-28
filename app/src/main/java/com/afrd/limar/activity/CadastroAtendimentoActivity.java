@@ -34,11 +34,21 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
     private ArrayList<Servico> listaServicos = new ArrayList<>();
     private ArrayList<Equipamento> listaEquipamento = new ArrayList<>();
 
+
+
+    ClientePessoaFisica clientePessoaFisica = new ClientePessoaFisica();
+    ClientePessoaJuridica clientePessoaJuridica = new ClientePessoaJuridica();
+
+    //arrai para receber dados de atendimentos pendenrtes
+    private  ArrayList<ArrayList> listaGeralBackup = new ArrayList<>();
+    private String keyRecebe;
+    private String validador;
+
     //dados do atendimento
     private TextInputEditText textDataAtendimento, textHoraInicio, textHoraFim, textDescricaoAtendimento;
     private RadioGroup radioGroup;
     private String statusAtendimento = "Pendente";
-
+    private double totalAtendiment = 0;
 
 
     private TextView textViewNomeClienteAtendimento, textViewEndereco, textViewCidade;
@@ -47,6 +57,8 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
 
     //configuraçõa firebase
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance("https://projetolimar-53f6e-default-rtdb.firebaseio.com/").getReference();
+    private DatabaseReference databaseReferenceAtt = FirebaseDatabase.getInstance("https://projetolimar-53f6e-default-rtdb.firebaseio.com/").getReference().child("atendimentos");
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +79,64 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
         maskData();
         maskHora();
 
+        Intent i = getIntent();
+        this.validador = i.getStringExtra("validaEntrada");
+        if (this.validador != null){
+            if(this.validador.compareTo("1") == 0){
+                attViewParaAtendimentoPendente();
+            }
+        }
+
+
     }
+
+    public void attViewParaAtendimentoPendente(){
+        Intent i = getIntent();
+        Atendimento atendimento = (Atendimento) i.getSerializableExtra("objAtendimento");
+        ArrayList<MaterialEmAtendimento> materialEmAtendimentos = (ArrayList<MaterialEmAtendimento>) i.getSerializableExtra("listMateriais");
+        ArrayList<Servico> servico = (ArrayList<Servico>) i.getSerializableExtra("listServico");
+        ArrayList<Equipamento> equipamentos = (ArrayList<Equipamento>) i.getSerializableExtra("listaEquipamento");
+        keyRecebe = i.getStringExtra("key");
+
+
+
+
+
+        this.nome =   i.getStringExtra("nome");
+        this.endereco =   i.getStringExtra("endereco");
+        this.email =   i.getStringExtra("email");
+        this.cpf =   i.getStringExtra("cpf");
+        this.nasc =   i.getStringExtra("nasc");
+        this.cidade =   i.getStringExtra("cidade");
+        this.celular =   i.getStringExtra("celular");
+        Double valorTotal= (Double) i.getSerializableExtra("valorTotal");
+
+
+
+        textDataAtendimento.setText(atendimento.getDataIncio());
+        textHoraInicio.setText(atendimento.getHoraInicio());
+        textHoraFim.setText(atendimento.getHoraFim());
+        textDescricaoAtendimento.setText(atendimento.getDescricaoAtendimento());
+
+        listaMateriais = materialEmAtendimentos;
+        listaServicos = servico;
+        listaEquipamento = equipamentos;
+        //this.clientePessoaFisica = clientePessoaFisicaRecebe;
+
+        textViewNomeClienteAtendimento.setText("Nome: " + this.nome);
+        textViewCidade.setText("Nome: " + this.cidade);
+        textViewEndereco.setText("Nome: " + this.endereco);
+        this.totalAtendiment = valorTotal;
+
+
+
+
+
+
+
+    }
+
     public Atendimento criaDadosAtendimento(){
-        Toast.makeText(getApplicationContext(), statusAtendimento, Toast.LENGTH_SHORT).show();
         Atendimento atendimento = new Atendimento(1,textDescricaoAtendimento.getText().toString().trim(),textDataAtendimento.getText().toString().trim(),textHoraInicio.getText().toString().trim(),
                 textHoraFim.getText().toString().trim(), statusAtendimento);
         return atendimento;
@@ -118,27 +185,41 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
         listaDeDadosDoAtendimento.add(listaServicos);
         listaDeDadosDoAtendimento.add(listaEquipamento);
         if(verificacao){
-            ClientePessoaFisica clientePessoaFisica = new ClientePessoaFisica(this.nome, this.endereco, this.celular,this.celular, this.cidade, this.email,
+            clientePessoaFisica = new ClientePessoaFisica(this.nome, this.endereco, this.celular,this.celular, this.cidade, this.email,
                     this.cpf, this.nasc);
             listaDeDadosDoAtendimento.add(clientePessoaFisica);
-            Toast.makeText(this, clientePessoaFisica.getNome(), Toast.LENGTH_SHORT).show();
         }else{
-            ClientePessoaJuridica clientePessoaJuridica = new ClientePessoaJuridica(this.nome,this.endereco, this.celular, this.celular, this.cidade
+            clientePessoaJuridica = new ClientePessoaJuridica(this.nome,this.endereco, this.celular, this.celular, this.cidade
             ,this.email, this.cnpj, this.inscricaoEstadual);
             listaDeDadosDoAtendimento.add(clientePessoaJuridica);
-            Toast.makeText(this, clientePessoaJuridica.getNome(), Toast.LENGTH_SHORT).show();
+
+        }
+        Double valorDoAtendimento = new Double(totalAtendiment);
+        listaDeDadosDoAtendimento.add(valorDoAtendimento);
+
+        if(validador == null){
+
+            DatabaseReference atendimentos  = databaseReference.child("atendimentos");
+            atendimentos.push().setValue(listaDeDadosDoAtendimento);
+            finish();
+
+        }else if(validador.compareTo("1") == 0){
+
+            databaseReferenceAtt.child(this.keyRecebe).removeValue();
+            //DatabaseReference atendimentos  = databaseReference.child("atendimentos");
+            databaseReferenceAtt.push().setValue(listaDeDadosDoAtendimento);
+            finish();
 
         }
 
-        DatabaseReference atendimentos  = databaseReference.child("atendimentos");
-        atendimentos.push().setValue(listaDeDadosDoAtendimento);
 
 
 
 
 
 
-        finish();
+
+
     }
 
     public void addClienteParaAtendimento(View view){
@@ -147,7 +228,11 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
         startActivityForResult(intent, 1);
     }
 
-
+    @Override
+    protected void onRestart() {
+        Log.i("TAG", "onActivityResult: " + totalAtendiment);
+        super.onRestart();
+    }
 
     //Recuperação dos dados para salvar no array para push em BD
     @Override
@@ -186,10 +271,16 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
                     textViewNomeClienteAtendimento.setText(this.nome);
                     textViewEndereco.setText("End: " + this.endereco);
                     textViewCidade.setText("Cidade: " + this.cidade);
+
                 }else if(data.getStringExtra("valida").compareTo("materiais")==0){
                     listaMateriais = (ArrayList<MaterialEmAtendimento>) data.getSerializableExtra("listaRetorno");
+                    totalAtendiment += data.getDoubleExtra("valoTotal", 0);
+
+
                 }else if(data.getStringExtra("valida").compareTo("servicos")==0){
                     listaServicos = (ArrayList<Servico>) data.getSerializableExtra("listaRetorno");
+                    totalAtendiment += data.getDoubleExtra("totalServico", 0);
+
                 }else if(data.getStringExtra("valida").compareTo("equipamentos")==0){
                     listaEquipamento = (ArrayList<Equipamento>) data.getSerializableExtra("listaRetorno");
                 }
