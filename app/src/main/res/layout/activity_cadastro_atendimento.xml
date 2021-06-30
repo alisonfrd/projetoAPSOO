@@ -279,15 +279,20 @@
         android:id="@+id/buttonAdicionarSalvarAtendimento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginRight="87dp"
+
         android:drawableLeft="@drawable/ic_salvar"
+
         android:drawableTint="@color/white"
         android:onClick="salvarAtendimento"
         android:text="Salvar"
         android:textColor="@color/azul1"
-
         app:backgroundTint="@color/azul5"
-
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
     <TextView
@@ -339,6 +344,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEnderecoExibicaoAtendimento" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/noturno2"
+        android:text="Apagar"
+        android:textColor="@color/noturno1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.707"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

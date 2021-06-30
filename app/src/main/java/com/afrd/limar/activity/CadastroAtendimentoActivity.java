@@ -124,8 +124,8 @@ public class CadastroAtendimentoActivity extends AppCompatActivity  {
         //this.clientePessoaFisica = clientePessoaFisicaRecebe;
 
         textViewNomeClienteAtendimento.setText("Nome: " + this.nome);
-        textViewCidade.setText("Nome: " + this.cidade);
-        textViewEndereco.setText("Nome: " + this.endereco);
+        textViewCidade.setText("Cidade: " + this.cidade);
+        textViewEndereco.setText("Endereço: " + this.endereco);
         this.totalAtendiment = valorTotal;
 
 

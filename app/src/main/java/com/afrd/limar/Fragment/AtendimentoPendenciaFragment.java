@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -82,6 +83,8 @@ public class AtendimentoPendenciaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_atendimento_pendencia, container, false);
+        Toolbar toolbar = view.findViewById(R.id.toolbarClientes);
+        toolbar.setTitle("Atendimentos Pendentes");
 
         FloatingActionButton floatingActionButton = view.findViewById(R.id.fabAtendimentos);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
